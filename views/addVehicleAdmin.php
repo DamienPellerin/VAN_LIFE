@@ -31,7 +31,7 @@
                 <div class="col-md-5 mt-3">
                     <div class="errorDescription"><?= $error['description']  ?? '' ?></div>
                     <label for="description" class="form-label">Description</label>
-                    <input type="text" class="form-control" id="description" name="description" placeholder="description" value="<?= $description ?? '' ?>" autocomplete="description" required>
+                    <input type="text" class="form-control" id="description" name="description" placeholder="Description" value="<?= $description ?? '' ?>" autocomplete="description" required>
                 </div>
 
 

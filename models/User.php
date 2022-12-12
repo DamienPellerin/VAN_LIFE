@@ -280,7 +280,7 @@ class User
     }
 
     /**
-     * Récupération des données patient
+     * Récupération des données utilisateur
      * @param mixed $id
      * 
      * @return [type]

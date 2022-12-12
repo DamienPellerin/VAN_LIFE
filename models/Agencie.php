@@ -146,7 +146,7 @@ public function setDescription(string $valueDescription): void
     }
 
        
-    public static function read($id): object
+    public static function read($id): object | bool
     {
         $pdo = Database::getInstance();
         $sql = 'SELECT * 

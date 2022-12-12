@@ -39,11 +39,7 @@
                     <?php foreach ($vehicles as $vehicle) { ?>
                         <div class="card swiper-slide">
                             <div class="image-content">
-                                <span class="overlay"></span>
-
-                                <div class="card-image">
-                                    <img class="card-img-agencie" src="../public/uploads/vehicles/<?= $vehicle->id_vehicles ?>.jpg" alt="...">
-                                </div>
+                                    <img class="card-img-vehicle" src="../public/uploads/vehicles/<?= $vehicle->id_vehicles ?>.jpg" alt="...">
                             </div>
 
                             <div class="card-content">

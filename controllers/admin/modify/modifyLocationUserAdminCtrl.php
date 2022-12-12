@@ -4,10 +4,17 @@ require_once(__DIR__.'/../../../config/config.php');
 require_once(__DIR__.'/../../../models/Location.php');
 require_once(__DIR__.'/../../../models/Agencie.php');
 require_once(__DIR__.'/../../../models/Vehicle.php');
+
+if(isset($_SESSION['user']) && ($_SESSION['user']->role != 1)){
+    header('Location: /controllers/homeController.php');
+    exit();
+    
+}else{
+
 try{
 
+    
     $agencies = Agencie::readAll();
-
     $vehicles = Vehicle::readAll();
     //Récupération de l'ID de la location
     $reservationId = intval(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));
@@ -48,6 +55,7 @@ try{
     if (empty($id_vehicles)) {
         $error["vehicle"] = "Impossible d'identifier le vehicule!";
      }
+     
      if (empty($errors)) {
 
          //**** HYDRATATION ****/
@@ -74,7 +82,7 @@ try{
 } catch (Exception $e) {
  echo $e->getMessage();
  die();
-}
+}}
 
 include(__DIR__ . '/../../../views/templates/header.php');
 include(__DIR__ . '/../../../views/modifyLocationUserAdmin.php');

@@ -8,7 +8,8 @@ if(isset($_SESSION['user']) && ($_SESSION['user']->role != 1)){
     
 }else{
 try {
-    $agencieId = intval(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));
+    $agencieId = intval($_GET['id']);
+    $agencie = Agencie::read($agencieId);
     //DONNÉES RECU EN METHOD POST//
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -49,11 +50,11 @@ try {
        }
        if ($isModifyAgencie) {
            SessionFlash::set('L\'agence  à bien été modifié');
-           header('location: /controllers/adminCtrl.php');
+           header('location: /controllers/admin/adminCtrl.php');
            exit;
        } else {
            SessionFlash::set('Une erreur est survenue');
-           header('location: /controllers/modifyAgencieAdminCtrl.php');
+           header('location: /controllers/admin/modify/modifyAgencieAdminCtrl.php');
            exit;
        }
         

@@ -8,6 +8,15 @@ try {
     //Récupération de l'ID utilisateur
     $userId = intval($_SESSION['user']->id_users);
 
+    $userLastname = $_SESSION['user']->lastname ?? $lastname;
+    $userFirstname = $_SESSION['user']->firstname ?? $firstname;
+    $userZipcode = $_SESSION['user']->zipcode ?? $zipcode;
+    $userBirthdate = $_SESSION['user']->birthdate ?? $birthdate;
+    $userCity = $_SESSION['user']->city ?? $city;
+    $userMail = $_SESSION['user']->mail ?? $mail;
+    $userAdress = $_SESSION['user']->adress ?? $adress;
+    $userPhone = $_SESSION['user']->phone ?? $phone;
+    
     //DONNÉES RECU EN METHOD POST//
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -111,11 +120,13 @@ try {
             $user->setAdress($adress);
             $user->setId($userId);
             $isUpdatedUser = $user->update();
-
+            $user = User::getByEmail($mail);
+            $user->password = NULL;
+            $_SESSION['user'] = $user;
 
             if ($isUpdatedUser) {
                 SessionFlash::set('Votre compte à bien été modifié');
-                header('location: /controllers/user/userDashboardCtrl.php');
+                 header('location: /controllers/user/userDashboardCtrl.php');
                 exit;
             } else {
                 SessionFlash::set('Une erreur est survenue');

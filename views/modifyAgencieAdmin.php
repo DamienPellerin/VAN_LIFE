@@ -15,21 +15,32 @@
                 <div class="col-md-5 mb-3">
                     <div class="errorName"><?= $error['name'] ?? '' ?></div>
                     <label for="name" class="form-label">Nom de l'agence</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Nom de l'agence" value="<?= $name ?? '' ?>" pattern="<?= REGEX_NO_NUMBER ?>" autocomplete="name" required>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Nom de l'agence" value="<?= $agencie->name ?? '' ?>" pattern="<?= REGEX_NO_NUMBER ?>" autocomplete="name" required>
                 </div>
-
+                </div>
+                <div class="row justify-content-center mb-3">
                 <!--ADRESSE-->
                 <div class="col-md-5">
                     <div class="error"><?= $error['adress'] ?? '' ?></div>
                     <label for="adress" class="form-label">Adresse</label>
-                    <input type="text" class="form-control" id="adress" name="adress" placeholder="1234 Main St">
+                    <input type="text" class="form-control" id="adress" name="adress" placeholder="1234 Main St" value="<?= $agencie->adress ?? ""?>">
                 </div>
-
+                </div>
+                <div class="row justify-content-center mb-3">
                 <!--DESCRIPTION-->
-                <div class="col-md-5 mt-5">
+                <div class="col-md-5 ">
                     <div class="errorDescription"><?= $error['description']  ?? '' ?></div>
                     <label for="description" class="form-label">Description</label>
-                    <input type="text" class="form-control" id="description" name="description" placeholder="description" value="<?= $description ?? '' ?>" autocomplete="description" required>
+                    <input type="text" class="form-control" id="description" name="description" placeholder="description" value="<?= $agencie->description ?? '' ?>" autocomplete="description" required>
+                </div>
+                </div>
+
+                <div class="row justify-content-center mb-3">
+                <!--FICHIER-->
+                <div class="col-md-5 ">
+                    <div class="errorDescription"><?= $error['profile']  ?? '' ?></div>
+                    <label for="profile" class="form-label">Image de profile</label>
+                    <input type="file" class="form-control" id="profile" name="profile" placeholder="description" autocomplete="description" required>
                 </div>
 
                 <div class="col-12 justify-content-center mt-5 mb-3">

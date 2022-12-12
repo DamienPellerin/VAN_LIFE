@@ -44,7 +44,7 @@
                 </div>
 
                 <div class="col-12  mt-5 mb-3">
-                    <button type="submit" class="btn btn-dark">Modifier</button>
+                    <button type="submit" class="btn btn-dark">Ajouter</button>
                 </div>
             </div>
         </form>

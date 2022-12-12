@@ -2,7 +2,7 @@
     <?php if (SessionFlash::exist()) { ?>
         <?= SessionFlash::get(); ?>
     <?php } ?>
-    <section>
+    <section class="recap">
         <h1 class="mb-5">Récapitulatif de votre location</h1>
         <div class="row justify-content-center mb-3">
             <ul class="text-center">

@@ -70,7 +70,7 @@ try {
                 $isAddedLocation = $location->addLocation();
 
                 if ($isAddedLocation) {
-                    SessionFlash::set('La reservation à bien été effectuée');
+                    SessionFlash::set('Votre reservation à bien été effectuée');
                     header('location: /controllers/user/userDashboardCtrl.php');
                     exit;
                 } else {

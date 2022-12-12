@@ -7,7 +7,7 @@
                     <?= SessionFlash::get(); ?>
                 <?php } ?>
 
-                <!--NOM ET PRÉNOM--> 
+                <!--NOM ET PRÉNOM-->
                 <div class="row justify-content-center">
                     <!--NOM-->
                     <div class="col-md-5 mt-5 mb-2">
@@ -17,7 +17,7 @@
                     </div>
                     <!--PRÉNOM-->
                     <div class="col-md-5 mt-5 mb-2">
-         
+
                         <div class="errorFirstName"><?= $error['firstname']  ?? '' ?></div>
                         <label for="firstname" class="form-label">Prénom</label>
                         <input type="text" class="form-control" id="firstname" name="firstname" placeholder="PRÉNOM" value="<?= $firstname ?? '' ?>" pattern="<?= REGEX_NO_NUMBER ?>" autocomplete="firstname" required>
@@ -82,12 +82,16 @@
                         <input type="password" class="form-control" id="confirm-password" name="confirm-password" pattern="<?= REGEX_PASSWORD ?>" required>
                     </div>
                 </div>
-
+                <div class="input-group mb-3">
+                    <div class="input-group-text">
+                        <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                    </div>
+                </div>
                 <div class="col-12 justify-content-center mt-5">
                     <button type="submit" class="btn btn-dark mb-5">Inscription</button>
                 </div>
             </form>
         </div>
     </div>
-
 </main>
+<script src="../public/assets/js/app.js"></script>

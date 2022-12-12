@@ -1,6 +1,6 @@
 <main class=" container">
 
-    <h1>Modification de votre location</h1>
+    <h1 class="mt-5">Modification de votre location</h1>
 
     <div class="modifyUserLocation">
 
@@ -11,7 +11,7 @@
             <?php } ?>
 
 
-            <div class=" row justify-content-center  mt-5">
+            <div class=" row justify-content-center  mt-5 mb-3">
                 <div class="col-md-4 ">
                     <label for="agencie">Agence</label>
                     <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="agencie" id="agencie">
@@ -22,7 +22,7 @@
                     </select>
                 </div>
             </div>
-            <div class=" row justify-content-center ">
+            <div class=" row justify-content-center mb-3">
                 <div class="col-md-4 ">
                     <label for="vehicle">Vehicule</label>
                     <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="vehicle" id="vehicle">
@@ -33,14 +33,14 @@
                     </select>
                 </div>
             </div>
-            <div class=" row justify-content-center ">
+            <div class=" row justify-content-center mb-3">
                 <div class="col-md-4 ">
 
                     <label for="departure">Date de départ</label>
                     <input type="date" class="form-control" id="departure" name="departure" value="<?= date('Y-m-d', strtotime($reservation->rental_date))  ?>">
                 </div>
             </div>
-            <div class=" row justify-content-center ">
+            <div class=" row justify-content-center mb-3">
                 <div class="col-md-4">
                     <label for="return">Date de retour</label>
                     <input type="date" class="form-control" id="return" name="return" value="<?= date('Y-m-d', strtotime($reservation->return_date))  ?>">
@@ -49,12 +49,12 @@
     </div>
     </div>
     
-    </form>
+   
 
-    <div class="row justify-content-center  ">
-    <div class="">
-        <button type="submit" class="btn btn-dark">Modifier</button>
-    </div>
+    <div class="row  justify-content-center mt-5 ">
+   
+        <button type="submit" class="btn btn-dark col-3">Modifier</button>
+   
     </div>
 
     </form>

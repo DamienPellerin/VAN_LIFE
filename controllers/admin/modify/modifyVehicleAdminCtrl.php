@@ -2,6 +2,7 @@
 
 require_once(__DIR__ . '/../../../config/config.php');
 require_once(__DIR__ . '/../../../models/Vehicle.php');
+
 if(isset($_SESSION['user']) && ($_SESSION['user']->role != 1)){
     header('Location: /controllers/homeController.php');
     exit();
@@ -9,7 +10,7 @@ if(isset($_SESSION['user']) && ($_SESSION['user']->role != 1)){
 try {
 
     $vehicleId = intval($_GET['id']);
-
+    $vehicle = Vehicle::read($vehicleId);
     //DONNÉES RECU EN METHOD POST//
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -59,11 +60,11 @@ try {
         }
         if ($isModifyVehicle) {
             SessionFlash::set('Le véhicule  à bien été modifié');
-            header('location: /controllers/adminCtrl.php');
+            header('location: /controllers/admin/adminCtrl.php');
             exit;
         } else {
             SessionFlash::set('Une erreur est survenue');
-            header('location: /controllers/modifyVehicleAdminCtrl.php');
+            header('location: /controllers/modify/modifyVehicleAdminCtrl.php');
             exit;
         }
     }

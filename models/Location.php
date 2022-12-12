@@ -183,19 +183,43 @@ class Location
      * Affichage du rendez-vous dans profile du patient
      * @return [type]
      */
+   // public static function readProfilLocation(int $id)
+    //{
+       // $pdo = Database::getInstance();
+       // $sql = 'SELECT `registers`.`id_registers`, rental_date, return_date, `registers`.`id_users`, id_vehicles   
+              //  FROM `registers` 
+               // INNER JOIN `users` 
+             // ON `registers`.`id_users` = `users`.`id_users` 
+             // WHERE `registers`.`id_users` = :id;';        
+       // $sth = $pdo->prepare($sql);
+       // $sth->bindValue(':id', $id, PDO::PARAM_INT);
+       // $sth->execute();
+       // return $sth->fetchAll(PDO::FETCH_OBJ);
+   // }
+
+       /**
+     * Affichage du rendez-vous dans profile du patient
+     * @return [type]
+     */
     public static function readProfilLocation(int $id)
     {
         $pdo = Database::getInstance();
-        $sql = 'SELECT `registers`.`id_registers`, rental_date, return_date, `registers`.`id_users`, id_vehicles   
+        $sql = 'SELECT `registers`.`id_registers`, rental_date, return_date, `registers`.`id_users`, `vehicles`.`id_vehicles` ,`vehicles`.`name` AS vehicle_name , `agencies`.`name` 
                 FROM `registers` 
                 INNER JOIN `users` 
-                ON `registers`.`id_users` = `users`.`id_users` 
+                ON `registers`.`id_users` = `users`.`id_users`
+                INNER JOIN vehicles
+                ON `registers`.`id_vehicles` = `vehicles`.`id_vehicles`
+                INNER JOIN agencies
+                ON `registers`.`id_agencies` = `agencies`.`id_agencies`
                 WHERE `registers`.`id_users` = :id;';        
         $sth = $pdo->prepare($sql);
         $sth->bindValue(':id', $id, PDO::PARAM_INT);
         $sth->execute();
         return $sth->fetchAll(PDO::FETCH_OBJ);
     }
+
+   
 
     // modifier la location de utilisateur.
     public function updateLocation($id)

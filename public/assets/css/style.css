@@ -21,19 +21,34 @@ body {
     background: var(--white);
 }
 
-main{
+main {
     min-height: calc(100vh - 86px - 100px);
 }
 
-header{
+header {
     height: 86px;
 }
 
+.navbar{
+height: 86px;
+}
 
+.maps {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 500px;
+    margin-bottom: 10%;
+}
 
-.card {
+.connexion {
+    padding-top: 5%;
+}
+
+.card-reserve {
     top: -70px;
-    left: 90%;
+    left: 80%;
     right: 30%;
 }
 
@@ -158,7 +173,7 @@ h5 a {
 .A,
 .B,
 .C {
-    filter: brightness(50%);
+    filter: brightness(60%);
     width: 500px;
     height: 100%;
     background-size: contain;
@@ -195,6 +210,7 @@ h5 a {
     cursor: pointer;
     text-decoration: none;
     border-radius: 5px;
+    padding: 10px;
 }
 
 .agency:hover,
@@ -219,7 +235,7 @@ h5 a {
 .dashboardAdmin {
     height: auto;
     width: 100%;
-    text-align: center;
+
 }
 
 .addVehicle {
@@ -249,8 +265,6 @@ h5 a {
 }
 
 .modifyVehicle {
-    height: 60vh;
-    width: 100%;
     text-align: center;
 }
 
@@ -290,11 +304,11 @@ h5 a {
     margin-top: 3%;
 }
 
-.block-vehicle img{
+.block-vehicle img {
     filter: drop-shadow(3px 3px 3px var(--black));
 }
 
-.block-agencie img{
+.block-agencie img {
     filter: drop-shadow(3px 3px 3px var(--black));
 }
 
@@ -315,9 +329,77 @@ h5 a {
     text-decoration: none;
 }
 
-.row{
+.row {
     border-radius: 5px;
 }
+
+.img-agencie-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.img-card-agencie {
+    width: 40%;
+    height: 400px;
+    border-radius: 5px;
+    border: solid 1px var(--grey);
+}
+
+.img-card-vehicle {
+    width: 40%;
+    height: 400px;
+    border-radius: 5px;
+    border: solid 1px rgb(168, 166, 166);
+}
+
+.liberty{
+    display: flex;
+    justify-content: center;
+    height: calc(100vh - 86px);
+}
+
+.liberty-card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+   width: 100%;
+   height: 100%;
+  
+}
+
+.picture-liberty{
+    filter: brightness(60%);
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("/public/assets/img/liberty-3.jpeg");
+    background-attachment: fixed;
+}
+
+.liberty-van{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 1;
+    outline: none;
+    font-size: 80px;
+    letter-spacing: 6px;
+    width: auto;
+    color: var(--white);
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-family:'Amatic SC', sans-serif ;
+    font-weight: 900;
+}
+
 
 /*--------- FOOTER ----------*/
 footer {
@@ -327,7 +409,7 @@ footer {
     justify-content: center;
     align-items: center;
     background-color: var(--black);
-    color: #fff;
+    color: var(--white);
 }
 
 footer p {
@@ -335,46 +417,65 @@ footer p {
     text-align: center;
 }
 
+.insta,
+.fbook {
+    width: 40px;
+    height: 40px;
+}
+
+.instagram {
+    margin-right: 5px;
+}
+
+.facebook {
+    margin-left: 5px;
+}
 
 /*--------- DASHBOARD ADMIN ----------*/
-.slide-container{
+.slide-container {
     max-width: 1200px;
     height: auto;
     width: 100%;
     padding: 20px 0;
     margin-bottom: 50px;
-  }
-  .slide-content{
+}
+
+.slide-content {
     overflow: hidden;
     border-radius: 10px;
-  }
-  .card{
+}
+
+.card {
     border-radius: 10px;
     background-color: #FFF;
-  }
-  .image-content,
-  .card-content{
+}
+
+.image-content,
+.card-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px 14px;
-  }
-  .image-content{
+
+}
+
+.image-content {
     position: relative;
     row-gap: 5px;
-    padding: 125px 0px;
-  }
-  .overlay{
-    
+    padding-top: 40px;
+    padding-bottom: 50px;
+}
+
+.overlay {
     left: 0;
     top: 0;
     height: 90%;
     width: 100%;
     background-color: #212529;
     border-radius: 10px 10px 0 25px;
-  }
-  .overlay::before,
-  .overlay::after{
+}
+
+.overlay::before,
+.overlay::after {
     content: '';
     position: absolute;
     right: 0;
@@ -382,42 +483,54 @@ footer p {
     height: 40px;
     width: 40px;
     background-color: #212529;
-  }
-  .overlay::after{
+}
+
+.overlay::after {
     border-radius: 0 25px 0 0;
     background-color: #FFF;
-  }
-  .card-image{
-    height: 300px;
-    width: 300px;
+}
+
+.card-content {
+    padding-bottom: 15%;
+}
+
+.card-image {
+    height: 100px;
+    width: 200px;
     border-radius: 30%;
     background: #FFF;
     padding: 3px;
-  }
-  
-  .card-image .card-img-agencie{
-    height: 100%;
+}
+
+.card-img-vehicle {
+    height: 180px;
+    object-fit: contain;
+}
+
+.card-img-agencie {
+    height: 200px;
     width: 100%;
     object-fit: cover;
-    border-radius: 30%;
-    border: 2px solid var(--black);
-  }
+    margin-top: 15px;
+}
 
-  .name{
+.name {
     font-size: 40px;
     font-weight: 900;
     color: #333;
-  }
+}
 
-  .name a{
+.name a {
     color: var(--black);
-  }
-  .description{
+}
+
+.description {
     font-size: 14px;
     color: #707070;
     text-align: center;
-  }
-  .button{
+}
+
+.button {
     border: none;
     font-size: 16px;
     color: #FFF;
@@ -427,76 +540,135 @@ footer p {
     margin: 14px;
     cursor: pointer;
     transition: all 0.3s ease;
-  }
-  .button:hover{
+}
+
+.button:hover {
     background: var(--black);
-  }
-  
-  .swiper-navBtn{
+}
+
+.swiper-navBtn {
     color: var(--black);
     transition: color 0.3s ease;
-  }
-  .swiper-navBtn:hover{
+}
+
+.swiper-navBtn:hover {
     color: var(--grey);
-  }
-  .swiper-navBtn::before,
-  .swiper-navBtn::after{
+}
+
+.swiper-navBtn::before,
+.swiper-navBtn::after {
     font-size: 35px;
     color: var(--black);
-  }
-  .swiper-button-next{
+}
+
+.swiper-button-next {
     right: 0;
-  }
-  
-  .swiper-button-prev{
+}
+
+.swiper-button-prev {
     left: 0;
-  }
-  .swiper-pagination-bullet{
+}
+
+.swiper-pagination-bullet {
     color: var(--grey);
     opacity: 1;
-  }
-  .swiper-pagination-bullet-active{
-    color: var(--black);
-  }
+}
 
-  .button a{
-color: var(--white);
-text-decoration: none;
-  }
-  
-  
-  @media screen and (max-width: 768px) {
-    .slide-content{
-      margin: 0 10px;
+.swiper-pagination-bullet-active {
+    color: var(--black);
+}
+
+.button a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+.recap {
+    padding-top: 10%;
+}
+
+.description {
+    width: 90%;
+    color: var(--black);
+}
+
+.lines {
+    margin: 0 auto;
+    width: 200px;
+    height: 1px;
+    background: var(--black);
+    border-radius: 5px;
+    margin-bottom: 2%;
+}
+
+@media screen and (max-width: 768px) {
+    .slide-content {
+        margin: 0 10px;
     }
-    .swiper-navBtn{
-      display: none;
+
+    .swiper-navBtn {
+        display: none;
     }
-  }
+}
 
 /*--------- MEDIA QUERIES ----------*/
 @media screen and (max-width: 1200px) {
 
-    .card {
+    .recap {
+        padding-top: 10%;
+    }
+
+    .card-reserve {
         top: -50px;
         left: 60%;
         right: 30%;
+    }
+
+    .img-card-agencie {
+        width: 50%;
+        height: 70%;
+        border-radius: 5px;
+        border: solid 1px var(--grey);
+    }
+
+    .img-card-vehicle {
+        width: 50%;
+        height: 70%;
+        border-radius: 5px;
+        border: solid 1px var(--grey);
     }
 }
 
 
 @media screen and (max-width: 900px) {
 
-
-    .container-connexion{
-        height: 82vh;
-    }
-
-    .connexion{
+    .recap {
         padding-top: 10%;
     }
 
-    .card {
+    .img-card-agencie {
+        width: 60%;
+        height: 80%;
+        border-radius: 5px;
+        border: solid 1px var(--grey);
+    }
+
+    .img-card-vehicle {
+        width: 60%;
+        height: 80%;
+        border-radius: 5px;
+        border: solid 1px var(--grey);
+    }
+
+    .container-connexion {
+        height: 82vh;
+    }
+
+    .connexion {
+        padding-top: 10%;
+    }
+
+    .card-reserve {
         top: -50px;
         left: 0;
         right: 30%;
@@ -572,6 +744,28 @@ text-decoration: none;
 
 @media screen and (max-width: 700px) {
 
+    .recap {
+        padding-top: 10%;
+    }
+
+    .connexion {
+        padding-top: 12%;
+    }
+
+    .img-card-agencie {
+        width: 80%;
+        height: 90%;
+        border-radius: 5px;
+        border: solid 1px var(--grey);
+    }
+
+    .img-card-vehicle {
+        width: 80%;
+        height: 90%;
+        border-radius: 5px;
+        border: solid 1px var(--grey);
+    }
+
     .reserve {
         display: flex;
         justify-content: center;
@@ -644,15 +838,16 @@ text-decoration: none;
 
 
 @media (max-width: 500px) {
-    
-    .container-connexion{
+
+    .container-connexion {
         height: 80vh;
     }
-    .connexion{
+
+    .connexion {
         padding-top: 20%;
     }
 
-    .card {
+    .card-reserve {
         top: -50px;
         left: 0;
         right: 30%;
@@ -758,7 +953,7 @@ text-decoration: none;
 
     .addUser,
     .dashboardAdmin {
-       height: auto;
+        height: auto;
         width: 100%;
         text-align: center;
     }
@@ -771,6 +966,15 @@ text-decoration: none;
         height: 60vh;
         width: 100%;
         text-align: center;
+    }
+
+    .maps {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 300px;
+        margin-bottom: 10%;
     }
 
 }

@@ -9,7 +9,8 @@ try {
     //Récupération de l'ID utilisateur
     $userId = intval($_SESSION['user']->id_users);
     $userLocation = Location::readProfilLocation($userId);
-
+    
+    
     //DONNÉES RECU EN METHOD POST//
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 

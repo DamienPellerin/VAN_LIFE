@@ -4,7 +4,7 @@
 
 
         <div class="connexion">
-<h1>Connexion</h1>
+            <h1>Connexion</h1>
             <?php if (SessionFlash::exist()) { ?>
                 <?= SessionFlash::get(); ?>
             <?php } ?>
