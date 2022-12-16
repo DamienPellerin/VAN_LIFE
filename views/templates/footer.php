@@ -1,4 +1,5 @@
 <footer>
+  <p><a href="../controllers/cguCtrl.php">Conditions Générale d'Utilisation</a></p>
   <p>Copyright &copy;2022 VAN LIFE</p>
   <div class="instagram"><ion-icon class="insta" name="logo-instagram"></ion-icon></div>
   <div class="facebook"><ion-icon class="fbook" name="logo-facebook"></ion-icon></div>

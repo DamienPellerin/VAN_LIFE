@@ -5,6 +5,8 @@ require_once(__DIR__ . '/../models/Vehicle.php');
 try{
 //Récupération des donnnées de l'agence
     $agencies = Agencie::readAll();
+
+//Récupération des donnnées des véhicules
     $vehicles = Vehicle::readAll();
     
 }

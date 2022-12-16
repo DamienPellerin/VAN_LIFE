@@ -6,10 +6,12 @@ try {
 
     //Récupération de l'ID agence
     $agencieId = intval(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));
+    //Affichage des données des agences
     $agencies = Agencie::readAll();
 
-     //Récupération de l'ID agence
+    //Récupération de l'ID agence
      $vehicleId = intval(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));
+    //Affichage des données des véhicules
      $vehicles = Vehicle::readAll();
 
      

@@ -243,7 +243,8 @@ class User
      */
     public function addUser(int $id = null)
     {
-        $sql = 'INSERT INTO `users`(`lastname`, `firstname`, `mail`, `phone`, `city`, zipcode, `birthdate`, `password`, `adress`) VALUES (:lastname, :firstname, :mail, :phone, :city, :zipcode, :birthdate, :password, :adress);';
+        $sql = 'INSERT INTO `users`(`lastname`, `firstname`, `mail`, `phone`, `city`, zipcode, `birthdate`, `password`, `adress`) 
+                VALUES (:lastname, :firstname, :mail, :phone, :city, :zipcode, :birthdate, :password, :adress);';
         $this->pdo = Database::getInstance();
         $sth = $this->pdo->prepare($sql);
         $sth->bindValue(':lastname', $this->getLastname());
@@ -255,16 +256,15 @@ class User
         $sth->bindValue(':birthdate', $this->getBirthdate());
         $sth->bindValue(':password', $this->getPassword());
         $sth->bindvalue(':adress', $this->getAdress());
-        if($sth->execute()){
-            if(is_null($id)){
+        if ($sth->execute()) {
+            if (is_null($id)) {
                 $this->setId($this->pdo->lastInsertId());
             }
-            if($sth->rowCount()==1 || !is_null($id)){
+            if ($sth->rowCount() == 1 || !is_null($id)) {
                 return $this;
             }
         }
         return false;
-        
     }
 
     /**
@@ -292,6 +292,24 @@ class User
         $post = $sth->fetch(PDO::FETCH_OBJ);
         return $post;
     }
+
+   /**
+     * Récupération des données utilisateur
+     * @param mixed $id
+     * 
+     * @return [type]
+     */
+    public static function displayUserLocation(int $id)
+    {
+        $pdo = Database::getInstance();
+        $sth = $pdo->query('SELECT * FROM users 
+        INNER JOIN registers 
+        ON `users`.`id_users` = `registers`.`id_users` 
+        WHERE `users`.`id_users` = `registers`.`id_users` ');
+        $post = $sth->fetch(PDO::FETCH_OBJ);
+        return $post;
+    }
+
 
     // modifier le profil du utilisateur.
     public function update()
@@ -336,18 +354,18 @@ class User
         return false;
     }
 
-    public static function validateAccount(int $id):bool{
+    public static function validateAccount(int $id): bool
+    {
 
         $pdo = Database::getInstance();
         $sql = "UPDATE users SET `validated_at` = NOW() WHERE `id_users` = :id;";
         $sth = $pdo->prepare($sql);
         $sth->bindValue(':id', $id, PDO::PARAM_INT);
-        if($sth->execute()){
-            if($sth->rowCount()==1){
+        if ($sth->execute()) {
+            if ($sth->rowCount() == 1) {
                 return true;
             }
         }
         return false;
     }
-
 }

@@ -45,11 +45,31 @@
                         <td><?= ucfirst($formatDateFr->format(strtotime($user->created_at))) ?? '' ?></td>
                         <td class="text-center"><a class="text-decoration-none text-dark" href="/modification-utilisateur?id=<?= $user->id_users ?>"><img src="/public/assets/img/edit.svg" alt=""></a></td>
                         <td class="text-center"><a class="text-decoration-none text-dark" href="/controllers/admin/delete/deleteUserCtrl.php?id=<?= $user->id_users  ?>"><img src="/public/assets/img/x-circle.svg" alt=""></a></td>
+                        
                     </tr>
                 </tbody>
             <?php } ?>
         </table>
     </div>
+
+    <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
     <!-- Véhicule -->
     <div class="card mb-3">
@@ -118,7 +138,9 @@
                     <td class="text-uppercase text-center fw-bold fs-6" scope="col">Prénom</td>
                     <td class="text-uppercase text-center fw-bold fs-6" scope="col">Date de départ</td>
                     <td class="text-uppercase text-center fw-bold fs-6" scope="col">Date de retour</td>
-                    <th class="text-uppercase text-center fw-bold fs-6" scope="col" colspan="2">Action</th>
+                    <td class="text-uppercase text-center fw-bold fs-6" scope="col">Véhicule</td>
+                    <td class="text-uppercase text-center fw-bold fs-6" scope="col">Agence</td>
+                    <th class="text-uppercase text-center fw-bold fs-6" scope="col" colspan="3">Action</th>
                 </tr>
             </thead>
 
@@ -129,9 +151,12 @@
                         <td class="text-center"><?= $reservation->firstname ?></td>
                         <td class="text-center"><?= ucfirst($formatDateFr->format(strtotime($reservation->rental_date))) ?? '' ?></td>
                         <td class="text-center"><?= ucfirst($formatDateFr->format(strtotime($reservation->return_date))) ?? '' ?></td>
-
+                        <td class="text-center"><?= $reservation->vehicle_name ?></td>
+                        <td class="text-center"><?= $reservation->name ?></td>
                         <td class="text-center"><a class="text-decoration-none text-dark" href="/modif-location-utilisateur-by-admin?id=<?= $reservation->id_registers ?>"><img src="/public/assets/img/edit.svg" alt=""></a></td>
                         <td class="text-center"><a class="text-decoration-none text-dark" href="/controllers/admin/delete/deleteLocationCtrl.php?id=<?= $reservation->id_registers  ?>"><img src="/public/assets/img/x-circle.svg" alt=""></a></td>
+                        <td class="text-center"><a class="text-decoration-none text-dark" href="/controllers/facturepdfCtrl.php?id=<?= $reservation->id_registers ?>"><ion-icon name="folder-outline"></ion-icon></a></td>
+
                     </tr>
                 <?php } ?>
             </tbody>

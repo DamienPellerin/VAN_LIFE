@@ -45,7 +45,7 @@
               <button id="btnGroupDrop1" type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= $_SESSION['user']->firstname ?>     </button>
               <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                 <a class="dropdown-item" href="../../controllers/user/userDashboardCtrl.php">Compte</a>
-                <a class="dropdown-item" href="../../controllers/signOutCtrl.php">Deconnexion</a>
+                <a class="dropdown-item" href="/../controllers/signOutCtrl.php">Deconnexion</a>
               </div>
             </div>
 
@@ -54,7 +54,7 @@
               <button id="btnGroupDrop1" type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Administrateur</button>
               <div class="dropdown-menu " aria-labelledby="btnGroupDrop1">
                 <a class="dropdown-item " href="/../controllers/admin/adminCtrl.php">Compte</a>
-                <a class="dropdown-item" href="../../controllers/signOutCtrl.php">Deconnexion  </a>
+                <a class="dropdown-item" href="/../controllers/signOutCtrl.php">Deconnexion  </a>
               </div>
             </div>
 

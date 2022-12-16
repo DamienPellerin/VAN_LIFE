@@ -5,6 +5,7 @@
 
                 <section class="img-agencie-card">
                    <img class="img-card-vehicle mt-5" src="../public/uploads/vehicles/<?= $vehicle->id_vehicles ?>.jpg" alt="...">
+                   <div class="options"></div>
                 </section>
 
                 <div class="row justify-content-center mt-3">
@@ -46,8 +47,7 @@
                         </div>
 
                         <div class="card-content">
-                            
-                            <p class="description"><?= $agencie->description ?></p>
+                        
                             <?php if ((isset($_SESSION['user']))) { ?>
                                 <button class="button agencieBtn" id="<?= $agencie->id_agencies ?>"> Réserver </button>
                             <?php } else { ?>

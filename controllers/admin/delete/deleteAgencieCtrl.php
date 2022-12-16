@@ -6,15 +6,20 @@ try {
     ///Récupération de l'ID de l'agence
     $agencieId = intval(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));
 
-    //Supression du rendez-vous
+    //Supression de l'agence
     $isdeleteAgencie = Agencie::deleteAgencie($agencieId);
 
     if ($isdeleteAgencie) {
+
         SessionFlash::set('L\'agence à bien été supprimé'); 
+
         header('Location: /espace-administrateur');
         exit;
+
     } else {
+
         SessionFlash::set('Erreur'); 
+        
     }
 
 } catch (PDOException $e) {

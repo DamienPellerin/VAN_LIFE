@@ -3,9 +3,12 @@ require_once(__DIR__ . '/../../../config/config.php');
 require_once(__DIR__ . '/../../../models/User.php');
 
 if(isset($_SESSION['user']) && ($_SESSION['user']->role != 1)){
+
     header('Location: /controllers/homeController.php');
     exit();
+
 }else{
+
 try {
 
     //DONNÉES RECU EN METHOD POST//
@@ -138,10 +141,14 @@ try {
             $isAddedUser = $user->addUser();
 
             if ($isAddedUser) {
+
                 SessionFlash::set('Votre compte à bien été créé');
+
                 header('location: /controllers/adminCtrl.php');
                 exit;
+
             } else {
+                
                 SessionFlash::set('Une erreur est survenue');
                 header('location: /controllers/adminCtrl.php');
                 exit;

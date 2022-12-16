@@ -3,7 +3,10 @@ require_once(__DIR__ . '/../config/config.php');
 require_once(__DIR__ . '/../models/Location.php');
 require_once(__DIR__ . '/../models/Vehicle.php');
 require_once(__DIR__ . '/../models/Agencie.php');
+require_once(__DIR__ . '/../models/User.php');
 
+$userId = intval($_SESSION['user']->id_users);
+$user = User::displayUser($userId);
 
 $id_agencies = intval(filter_input(INPUT_GET, 'agencie', FILTER_SANITIZE_NUMBER_INT));
 if (empty($id_agencies)) {

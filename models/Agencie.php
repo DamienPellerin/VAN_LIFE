@@ -9,8 +9,8 @@ class Agencie
     private string $_name;
     private string $_adress;
     private string $_description;
-    //private string $_city;
-    //private string $_zipcode;
+    private string $_city;
+    private string $_zipcode;
 
 
 public function __construct()
@@ -88,42 +88,39 @@ public function setDescription(string $valueDescription): void
 {
     $this->_description = $valueDescription;
 }
+/**
+ * @return string
+ */
+public function getCity(): string
+{
+    return $this->_city;
+}
+/**
+ * @param string $valueCity
+ * 
+ * @return void
+ */
+public function setCity(string $valueCity): void
+{
+    $this->_city = $valueCity;
+}
+/**
+ * @return string
+ */
+public function getZipcode(): string
+{
+    return $this->_zipcode;
+}
 
-///**
-// * @return string
-// */
-//public function getCity(): string
-//{
-//    return $this->_city;
-//}
-
-///**
-// * @param string $valueCity
-// * 
-// * @return void
-// */
-//public function setCity(string $valueCity): void
-//{
-//    $this->_city = $valueCity;
-//}
-
-///**
-// * @return string
-// */
-//public function getZipcode(): string
-//{
-//    return $this->_zipcode;
-//}
-//
-///**
-// * @param string $valueZipcode
-// * 
-// * @return void
-// */
-//public function setZipcode(string $valueZipcode): void
-//{
-//    $this->_zipcode = $valueZipcode;
-//}
+/**
+ * @param string $valueZipcode
+ * 
+ * @return void
+ */
+public function setZipcode(string $valueZipcode): void
+{
+    $this->_zipcode = $valueZipcode;
+}
 
 
 
@@ -133,17 +130,19 @@ public function setDescription(string $valueDescription): void
      */
     public function addAgencie()
     {
-        $sql = 'INSERT INTO `agencies`(`name`, `adress`, `description`) VALUES (:name, :adress, :description);';
+        $sql = 'INSERT INTO `agencies`(`name`, `adress`, `description`, `city`, `zipcode`) VALUES (:name, :adress, :description, :city, :zipcode);';
         $pdo = Database::getInstance();
         $sth = $pdo->prepare($sql);
         $sth->bindValue(':name', $this->getName());
         $sth->bindValue(':adress', $this->getAdress());
         $sth->bindValue(':description', $this->getDescription());
-        //$sth->bindValue(':city', $this->getCity());
-        //$sth->bindValue(':zipcode', $this->getZipcode());
-        //$sth->bindValue(':id_agencies', $this->getId_agencies());
+        $sth->bindValue(':city', $this->getCity());
+        $sth->bindValue(':zipcode', $this->getZipcode());
+
         return $sth->execute();
     }
+
+   
 
        
     public static function read($id): object | bool
@@ -194,11 +193,13 @@ public function setDescription(string $valueDescription): void
     // modifier le profil du utilisateur.
     public function updateAgencie()
     {
-        $modifyAgencie = 'UPDATE `agencies` SET `name`=:name, `adress`=:adress,`description`=:description WHERE `id_agencies`= :id';
+        $modifyAgencie = 'UPDATE `agencies` SET `name`=:name, `adress`=:adress,`description`=:description, `city`=:city, `zipcode`=:zipcode WHERE `id_agencies`= :id';
         $sth = Database::getInstance()->prepare($modifyAgencie);
         $sth->bindValue(':name', $this->getName());
         $sth->bindValue(':adress', $this->getAdress());
         $sth->bindValue(':description', $this->getDescription());
+        $sth->bindValue(':city', $this->getCity());
+        $sth->bindValue(':zipcode', $this->getZipcode());
         $sth->bindValue(':id', $this->getId(), PDO::PARAM_INT);
 
         if ($sth->execute()) {

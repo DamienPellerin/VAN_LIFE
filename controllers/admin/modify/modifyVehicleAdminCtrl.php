@@ -4,13 +4,19 @@ require_once(__DIR__ . '/../../../config/config.php');
 require_once(__DIR__ . '/../../../models/Vehicle.php');
 
 if(isset($_SESSION['user']) && ($_SESSION['user']->role != 1)){
+
     header('Location: /controllers/homeController.php');
     exit();
-}else{
-try {
 
+}else{
+
+try {
+    //Récupération de l'ID utilisateur
     $vehicleId = intval($_GET['id']);
+
+    //Affichage des données du véhicule
     $vehicle = Vehicle::read($vehicleId);
+
     //DONNÉES RECU EN METHOD POST//
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -59,13 +65,17 @@ try {
             $isModifyVehicle = $vehicle->updateVehicle();
         }
         if ($isModifyVehicle) {
+
             SessionFlash::set('Le véhicule  à bien été modifié');
             header('location: /controllers/admin/adminCtrl.php');
             exit;
+
         } else {
+
             SessionFlash::set('Une erreur est survenue');
             header('location: /controllers/modify/modifyVehicleAdminCtrl.php');
             exit;
+            
         }
     }
 } catch (PDOException $e) {

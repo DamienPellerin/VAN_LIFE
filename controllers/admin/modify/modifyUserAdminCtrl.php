@@ -3,15 +3,20 @@
 require_once(__DIR__ . '/../../../config/config.php');
 require_once(__DIR__ . '/../../../models/User.php');
 if(isset($_SESSION['user']) && ($_SESSION['user']->role != 1)){
+
     header('Location: /controllers/homeController.php');
     exit();
+
 }else{
+
 try {
 
+    //Récupération de l'ID utilisateur
     $userId = intval($_GET['id']);
+
+    //Affichage des données de l'utilisateur
     $user = User::displayUser($userId);
    
-
     //DONNÉES RECU EN METHOD POST//
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -117,13 +122,17 @@ try {
 
 
             if ($isUpdatedUser) {
+
                 SessionFlash::set('Le compte à bien été modifié');
                 header('location: /controllers/admin/adminCtrl.php');
                 exit;
+
             } else {
+
                 SessionFlash::set('Une erreur est survenue');
                 header('location: /controllers/modify/modifyUserAdminCtrl.php');
                 exit;
+                
             }
         }
     }

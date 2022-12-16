@@ -9,23 +9,24 @@
 
                 <div class="row justify-content-center mt-3">
                     <h1 class="mb-3">Louer un van aménagé à <?= $agencie->name ?></h1>
-                    <p class=" text-center mb-5"><?= $agencie->description ?></p>
+                    <p class="description text-center mb-5"><?= $agencie->description ?></p>
                 </div>
                 <section class="container col-12 mb-5">
 
-                    <div class="row justify-content-center mb-3">
-                        <div class="col-3">
+                    <div class="form-select-agencie row justify-content-center mb-3">
+                        <div class="col-3 row justify-content-center">
                             <label for="agencie">Agence</label>
                             <select class="form-select form-select-sm " aria-label=".form-select-sm example" name="agencie" id="agencie" required>
                                 <option value="<?= $agencie->id_agencies ?>"><?= $agencie->name ?></option>
                             </select>
                         </div>
-
-                        <div class="col-2">
+                    </div>
+                    <div class="row justify-content-center mb-3">
+                        <div class="col-3">
                             <label for="departure">Date de départ</label>
                             <input type="date" class="form-control" id="departure" name="departure" value="<?= $dateDeparture ?>" required>
                         </div>
-                        <div class="col-2">
+                        <div class="col-3">
                             <label for="return">Date de retour</label>
                             <input type="date" class="form-control" id="return" name="return" value="<?= $dateReturn ?>" required>
                         </div>
@@ -48,6 +49,8 @@
                         <div class="card-content">
 
                             <p class="description"><?= $vehicle->description ?></p>
+                            <p class="description"><?= $vehicle->price ?> €/nuit</p>
+
                             <?php if ((isset($_SESSION['user']))) { ?>
                                 <button class="button vehicleBtn" id="<?= $vehicle->id_vehicles ?>"> Réserver </button>
                             <?php } else { ?>

@@ -4,10 +4,14 @@ require_once(__DIR__ . '/../../../config/config.php');
 require_once(__DIR__ . '/../../../models/Vehicle.php');
 
 if(isset($_SESSION['user']) && ($_SESSION['user']->role != 1)){
+
     header('Location: /controllers/homeController.php');
     exit();
+
 }else{
-try { 
+
+try {
+
 //DONNÉES RECU EN METHOD POST//
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -123,6 +127,7 @@ try {
                 exit;
             }
         }
+        
 } catch (PDOException $e) {
     die('ERREUR :' . $e->getMessage());
 }

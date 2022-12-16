@@ -1,7 +1,9 @@
 <?php
 require_once(__DIR__ . '/../config/config.php');
 require_once(__DIR__ . '/../models/User.php');
+
 try{
+    // Récupération des données du formulaire
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // CHAMP DE L'EMAIL VERIFICATION//

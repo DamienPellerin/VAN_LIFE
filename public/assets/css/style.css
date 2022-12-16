@@ -22,15 +22,15 @@ body {
 }
 
 main {
-    min-height: calc(100vh - 86px - 100px);
+    min-height: calc(100vh - 65px - 100px);
 }
 
 header {
     height: 86px;
 }
 
-.navbar{
-height: 86px;
+.navbar {
+    height: 86px;
 }
 
 .maps {
@@ -62,7 +62,7 @@ height: 86px;
     display: flex;
     align-items: center;
     width: 100%;
-    height: calc(100vh - 86px);
+    height: calc(100vh - 75px);
     background: url("/public/assets/img/accueil-van.jpeg") no-repeat center;
     background-size: cover;
 }
@@ -329,15 +329,23 @@ h5 a {
     text-decoration: none;
 }
 
-.row {
-    border-radius: 5px;
-}
-
 .img-agencie-card {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
 
+.form-agencie-vehicle {
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    margin-top: 3%;
 }
 
 .img-card-agencie {
@@ -348,30 +356,30 @@ h5 a {
 }
 
 .img-card-vehicle {
-    width: 40%;
-    height: 400px;
+    width: 35%;
+    height: 350px;
     border-radius: 5px;
-    border: solid 1px rgb(168, 166, 166);
+    border: solid 1px rgb(214, 213, 213);
 }
 
-.liberty{
+.liberty {
     display: flex;
     justify-content: center;
-    height: calc(100vh - 86px);
+    height: calc(100vh - 75px);
 }
 
-.liberty-card{
+.liberty-card {
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     z-index: 1;
-   width: 100%;
-   height: 100%;
-  
+    width: 100%;
+    height: 100%;
+
 }
 
-.picture-liberty{
+.picture-liberty {
     filter: brightness(60%);
     width: 100%;
     height: 100%;
@@ -381,7 +389,7 @@ h5 a {
     background-attachment: fixed;
 }
 
-.liberty-van{
+.liberty-van {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -396,15 +404,31 @@ h5 a {
     text-decoration: none;
     border-radius: 5px;
     padding: 10px;
-    font-family:'Amatic SC', sans-serif ;
+    font-family: 'Amatic SC', sans-serif;
     font-weight: 900;
+}
+
+.check-box {
+    width: 100%;
+    text-align: center;
+}
+
+
+.check-box a {
+    color: var(--black);
+    text-decoration: none;
+}
+
+.user-facture{
+    color: var(--white);
+    text-decoration: none;
 }
 
 
 /*--------- FOOTER ----------*/
 footer {
     width: 100%;
-    height: 100px;
+    height: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -415,6 +439,11 @@ footer {
 footer p {
     margin: 5%;
     text-align: center;
+}
+
+footer a {
+    text-decoration: none;
+    color: var(--white);
 }
 
 .insta,
@@ -525,7 +554,7 @@ footer p {
 }
 
 .description {
-    font-size: 14px;
+    font-size: 18px;
     color: #707070;
     text-align: center;
 }
@@ -583,8 +612,38 @@ footer p {
     text-decoration: none;
 }
 
+.facture {
+    height: 60vh;
+}
+
+.info {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 5%;
+}
+
+.info-user {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+
+}
+
+.info-agencie {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+
+}
+
+
 .recap {
-    padding-top: 10%;
+    padding: 5px;
 }
 
 .description {
@@ -601,6 +660,29 @@ footer p {
     margin-bottom: 2%;
 }
 
+.comment {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.comment-card {
+    width: 20%;
+    margin: 1%;
+}
+
+.comment-user {
+    width: 50%;
+}
+
+.options img {
+    background-color: var(--white);
+}
+
+
+
 @media screen and (max-width: 768px) {
     .slide-content {
         margin: 0 10px;
@@ -614,9 +696,7 @@ footer p {
 /*--------- MEDIA QUERIES ----------*/
 @media screen and (max-width: 1200px) {
 
-    .recap {
-        padding-top: 10%;
-    }
+
 
     .card-reserve {
         top: -50px;
@@ -635,16 +715,13 @@ footer p {
         width: 50%;
         height: 70%;
         border-radius: 5px;
-        border: solid 1px var(--grey);
+        border: solid 1px rgb(214, 213, 213);
     }
 }
 
 
 @media screen and (max-width: 900px) {
 
-    .recap {
-        padding-top: 10%;
-    }
 
     .img-card-agencie {
         width: 60%;
@@ -657,7 +734,7 @@ footer p {
         width: 60%;
         height: 80%;
         border-radius: 5px;
-        border: solid 1px var(--grey);
+        border: solid 1px rgb(214, 213, 213);
     }
 
     .container-connexion {
@@ -744,9 +821,7 @@ footer p {
 
 @media screen and (max-width: 700px) {
 
-    .recap {
-        padding-top: 10%;
-    }
+
 
     .connexion {
         padding-top: 12%;
@@ -763,7 +838,7 @@ footer p {
         width: 80%;
         height: 90%;
         border-radius: 5px;
-        border: solid 1px var(--grey);
+        border: solid 1px rgb(214, 213, 213);
     }
 
     .reserve {
@@ -975,6 +1050,62 @@ footer p {
         width: 100%;
         height: 300px;
         margin-bottom: 10%;
+    }
+
+    .form-select-agencie {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        align-items: center;
+
+    }
+
+    .liberty {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 60vh;
+    }
+
+    .liberty-card {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+
+    }
+
+    .picture-liberty {
+        filter: brightness(60%);
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-image: url("/public/assets/img/liberty-3.jpeg");
+        background-attachment: fixed;
+        right: 50%;
+    }
+
+    .liberty-van {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        z-index: 1;
+        outline: none;
+        font-size: 30px;
+        letter-spacing: 6px;
+        width: auto;
+        color: var(--white);
+        cursor: pointer;
+        text-decoration: none;
+        border-radius: 5px;
+        padding: 10px;
+        font-family: 'Amatic SC', sans-serif;
+        font-weight: 900;
     }
 
 }

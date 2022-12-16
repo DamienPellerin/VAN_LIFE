@@ -4,10 +4,13 @@ require_once(__DIR__ . '/../../../models/Agencie.php');
 
 
 if (isset($_SESSION['user']) && ($_SESSION['user']->role != 1)) {
+
     header('Location: /controllers/homeController.php');
     exit();
 } else {
+
     try {
+
         //DONNÉES RECU EN METHOD POST//
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -39,19 +42,38 @@ if (isset($_SESSION['user']) && ($_SESSION['user']->role != 1)) {
                 $error['errordescription'] = 'Ce champ est vide';
             }
 
+            // CHAMP DE L'ADRESSE VERIFICATION//
+            //NETTOYAGE
+            $adress = trim(filter_input(INPUT_POST, 'adress', FILTER_SANITIZE_SPECIAL_CHARS));
+
+            // CHAMP DU CODE POSTAL VERIFICATION//
+            //NETTOYAGE
+            $city = filter_input(INPUT_POST, 'city', FILTER_SANITIZE_SPECIAL_CHARS);
+
+            // CHAMP DU CODE POSTAL VERIFICATION//
+            //NETTOYAGE
+            $zipcode = filter_input(INPUT_POST, 'zipcode', FILTER_SANITIZE_NUMBER_INT);
+            //VALIDATION
+            if (!empty($zipcode)) {
+                $isOk = filter_var($zipcode, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => '/' . REGEX_POSTAL . '/')));
+                if ($isOk == false) {
+                    $error['zipcode'] = 'La donnée n\'est pas valide';
+                }
+            }
+
             if (empty($error)) {
                 $agencie = new Agencie();
                 $agencie->setName($name);
                 $agencie->setAdress($adress);
                 $agencie->setDescription($description);
-                //$agencie->setCity($city);
-                //$agencie->setZipcode($zipcode);
+                $agencie->setCity($city);
+                $agencie->setZipcode($zipcode);
                 $isAddedAgencie = $agencie->addAgencie();
 
                 if ($isAddedAgencie) {
 
-                   $pdo = Database::getInstance();
-                   $lastinsertid = $pdo->lastinsertid();
+                    $pdo = Database::getInstance();
+                    $lastinsertid = $pdo->lastinsertid();
 
                     if (!isset($_FILES['profile'])) {
                         throw new Exception('Erreur !');
@@ -72,7 +94,7 @@ if (isset($_SESSION['user']) && ($_SESSION['user']->role != 1)) {
                     $from = $_FILES['profile']['tmp_name'];
                     $filename = $lastinsertid; //$user->id.'.jpg';
                     $extension = $extension = pathinfo($_FILES["profile"]["name"], PATHINFO_EXTENSION);
-                    $to = UPLOAD_AGENCIE_PROFILE . $filename . '.jpg' ;
+                    $to = UPLOAD_AGENCIE_PROFILE . $filename . '.jpg';
 
                     if (!move_uploaded_file($from, $to)) {
                         throw new Exception('problème lors du transfert');
@@ -104,19 +126,21 @@ if (isset($_SESSION['user']) && ($_SESSION['user']->role != 1)) {
                     );
 
                     // redimensionne l'image
-                    $resampledDestination = UPLOAD_AGENCIE_PROFILE . $lastinsertid.'.jpg';
+                    $resampledDestination = UPLOAD_AGENCIE_PROFILE . $lastinsertid . '.jpg';
                     imagejpeg($dst_image, $resampledDestination, 75);
                 }
+
                 SessionFlash::set('L\'agence à bien été créé');
                 header('location: /controllers/admin/adminCtrl.php');
                 exit;
             } else {
+
                 SessionFlash::set('Une erreur est survenue');
+
                 header('location: /controllers/admin/adminCtrl.php');
                 exit;
             }
         }
-     
     } catch (PDOException $e) {
         die('Erreur : ' . $e->getMessage());
     }

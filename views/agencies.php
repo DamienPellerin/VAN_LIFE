@@ -18,9 +18,6 @@
                         </div>
 
                         <div class="card-content">
-                            
-                            <p class="description"><?= $agencie->description ?></p>
-
                             <button class="button"><a href="../controllers/agenciesInfoController.php?id=<?= $agencie->id_agencies ?>"> Decouvrir</a></button>
                         </div>
                     </div>

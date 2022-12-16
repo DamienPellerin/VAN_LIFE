@@ -17,6 +17,9 @@ try{
                 $error['errorAgencie'] = 'La donnée n\'est pas valide';
             }
         }
+
+         // CHAMP DE LA DATE DE DÉPART //
+        //NETTOYAGE
         $dateDeparture = filter_input(INPUT_GET, 'departure', FILTER_SANITIZE_SPECIAL_CHARS);
         if (!empty($dateDeparture)) {
             $isOk = filter_var($dateDeparture, FILTER_VALIDATE_REGEXP, ['options' => ['regexp' => '/' . REGEX_DATE . '/']]);
@@ -25,6 +28,8 @@ try{
             }
         }
 
+          // CHAMP DE LA DATE DE RETOUR //
+        //NETTOYAGE
         $dateReturn = filter_input(INPUT_GET, 'return', FILTER_SANITIZE_SPECIAL_CHARS);
         if (!empty($dateReturn)) {
             $isOk = filter_var($dateReturn, FILTER_VALIDATE_REGEXP, ['options' => ['regexp' => '/' . REGEX_DATE . '/']]);
@@ -33,6 +38,8 @@ try{
             }
         }
 
+        // CHAMP DE DU VEHCICULE VERIFICATION//
+        //NETTOYAGE
         $vehicle = trim(filter_input(INPUT_GET, 'vehicle', FILTER_SANITIZE_SPECIAL_CHARS));
         if (!empty($vehicle)) {
             $isOk = filter_var($vehicle, FILTER_VALIDATE_REGEXP, ['options' => ['regexp' => '/' . REGEX_NO_NUMBER . '/']]);
@@ -41,6 +48,8 @@ try{
             }
         }
 
+        //RÉCUPÉRATION DE L'ID VEHICULE VERIFICATION//
+        //NETTOYAGE
         $id_vehicles = intval(filter_input(INPUT_GET, 'id_vehicles', FILTER_SANITIZE_NUMBER_INT));
         if (empty($id_vehicles)) {
             $error["vehicle"] = "Impossible d'idantifier le vehicule!";

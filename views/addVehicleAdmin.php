@@ -23,7 +23,7 @@
                 <div class="col-md-5 mt-3">
                     <div class="error"><?= $error['price'] ?? '' ?></div>
                     <label for="price" class="form-label">Prix</label>
-                    <input class="form-control" id="price" name="price" placeholder="prix" value="<?= $price ?? '' ?>" pattern="<?= REGEX_PRICE ?>" autocomplete="description" required>
+                    <input class="form-control" id="price" name="price" placeholder="Prix" value="<?= $price ?? '' ?>" pattern="<?= REGEX_PRICE ?>" autocomplete="Description" required>
                 </div>
 
                 <div class="row justify-content-center">
@@ -31,7 +31,7 @@
                 <div class="col-md-5 mt-3">
                     <div class="errorDescription"><?= $error['description']  ?? '' ?></div>
                     <label for="description" class="form-label">Description</label>
-                    <input type="text" class="form-control" id="description" name="description" placeholder="Description" value="<?= $description ?? '' ?>" autocomplete="description" required>
+                    <input type="text" class="form-control" id="description" name="description" placeholder="Description" value="<?= $description ?? '' ?>" autocomplete="Description" required>
                 </div>
 
 
@@ -40,7 +40,7 @@
                 <div class="col-md-5 mt-3">
                     <div class="errorDescription"><?= $error['profile']  ?? '' ?></div>
                     <label for="profile" class="form-label">Image de profile</label>
-                    <input type="file" class="form-control" id="profile" name="profile" placeholder="profile" autocomplete="profile" required>
+                    <input type="file" class="form-control" id="profile" name="profile" placeholder="Profile" autocomplete="profile" required>
                 </div>
 
                 <div>

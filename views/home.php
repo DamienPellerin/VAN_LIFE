@@ -1,7 +1,7 @@
 <main>
     <div class="hero-banner">
         <!--HEADER-MODAL-RESERVATION-->
-        <div class="reserve container  col-5 mt-5">
+        <div class="reserve container  col-5 mt-5 sm">
             <div class=" card-reserve card col-9 mt-5">
                 <h3 class="text-center mt-2">Loue un van amenagé</h3>
                 <div class="card-body">
@@ -73,7 +73,7 @@
             </div>
 
             <div class="card-adventure">
-                <a class="adventure">Vos Aventures</a>
+                <a class="adventure" href="../controllers/adventuresCtrl.php">Vos Aventures</a>
                 <div class="C"></div>
             </div>
         </div>

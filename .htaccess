@@ -1,4 +1,6 @@
+
 RewriteEngine On
+ErrorDocument 404 /controllers/404Ctrl.php
 RewriteRule ^modif-utilisateur$ controllers/user/modify/modifyUserCtrl.php
 RewriteRule ^espace-administrateur$ controllers/admin/adminCtrl.php
 RewriteRule ^modification-utilisateur$ controllers/admin/modify/modifyUserAdminCtrl.php

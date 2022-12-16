@@ -20,33 +20,52 @@
                 </div>
 
                 <div class="row justify-content-center">
-                <!--ADRESSE-->
-                <div class="col-md-5 mt-3">
-                    <div class="error"><?= $error['adress'] ?? '' ?></div>
-                    <label for="adress" class="form-label">Adresse</label>
-                    <input type="text" class="form-control" id="adress" name="adress" placeholder="1234 Main St">
-                </div>
+                    <!--ADRESSE-->
+                    <div class="col-md-5 mt-3">
+                        <div class="error"><?= $error['adress'] ?? '' ?></div>
+                        <label for="adress" class="form-label">Adresse</label>
+                        <input type="text" class="form-control" id="adress" name="adress" placeholder="">
+                    </div>
 
-                <div class="row justify-content-center">
-                <!--DESCRIPTION-->
-                <div class="col-md-5 mt-3">
-                    <div class="errorDescription"><?= $error['description']  ?? '' ?></div>
-                    <label for="description" class="form-label">Description</label>
-                    <input type="text" class="form-control" id="description" name="description" placeholder="description" value="<?= $description ?? '' ?>" autocomplete="description" required>
-                </div>
+                    <div class="row justify-content-center">
 
-                <div class="row justify-content-center">
-                <!--FICHIER-->
-                <div class="col-md-5 mt-3">
-                    <div class="errorDescription"><?= $error['profile']  ?? '' ?></div>
-                    <label for="profile" class="form-label">Image de profile</label>
-                    <input type="file" class="form-control" id="profile" name="profile" placeholder="description" autocomplete="description" required>
-                </div>
+                        <!--CODE POSTAL-->
+                        <div class="col-md-5">
+                            <div class="error"><?= $error['zipcode'] ?? '' ?></div>
+                            <label for="zipcode" class="form-label">Code Postal</label>
+                            <input type="text" class="form-control" id="zipcode" name="zipcode" placeholder="Code postal" required>
+                        </div>
 
-                <div class="col-12  mt-5 mb-3">
-                    <button type="submit" class="btn btn-dark">Ajouter</button>
-                </div>
-            </div>
+                        <!--VILLE-->
+                        <div class="col-md-5">
+                            <div class="error"><?= $error['city'] ?? '' ?></div>
+                            <label for="city" class="form-label">Ville</label>
+                            <select type="text" class="form-select" id="city" name="city" placeholder="Ville" required></select>
+                        </div>
+
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <!--DESCRIPTION-->
+                        <div class="col-md-5 mt-3">
+                            <div class="errorDescription"><?= $error['description']  ?? '' ?></div>
+                            <label for="description" class="form-label">Description</label>
+                            <input type="text" class="form-control" id="description" name="description" placeholder="Description" value="<?= $description ?? '' ?>" autocomplete="description" required>
+                        </div>
+
+                        <div class="row justify-content-center">
+                            <!--FICHIER-->
+                            <div class="col-md-5 mt-3">
+                                <div class="errorDescription"><?= $error['profile']  ?? '' ?></div>
+                                <label for="profile" class="form-label">Image de profile</label>
+                                <input type="file" class="form-control" id="profile" name="profile" placeholder="description" autocomplete="description" required>
+                            </div>
+
+                            <div class="col-12  mt-5 mb-3">
+                                <button type="submit" class="btn btn-dark">Ajouter</button>
+                            </div>
+                        </div>
         </form>
     </div>
 </main>
+<script src="/../../../public/assets/js/app.js"></script>

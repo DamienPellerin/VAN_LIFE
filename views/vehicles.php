@@ -21,7 +21,7 @@
                         <div class="card-content">
                             
                             <p class="description"><?= $vehicle->description ?></p>
-
+                            <p class="description"><?= $vehicle->price ?> €/nuit</p>
                             <button class="button"><a href="../controllers/vehiclesInfoController.php?id=<?= $vehicle->id_vehicles ?>"> Decouvrir</a></button>
                         </div>
                     </div>

@@ -8,8 +8,7 @@ try{
  //Récupération de l'ID utilisateur
  $userId = intval($_SESSION['user']->id_users);
 
-// suppression de l'utilisateur
-
+//Suppression de l'utilisateur
 if(User::deleteUser($userId) == true){
 unset($_SESSION['user']);   
 
@@ -18,7 +17,9 @@ header('Location: /controllers/connectionController.php');
 die;
 
 }else{
+
     SessionFlash::set('Erreur lors de la suppression de votre compte');
+    
 }
 
 } catch (PDOException $e) {

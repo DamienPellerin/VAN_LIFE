@@ -82,12 +82,12 @@
                         <input type="password" class="form-control" id="confirm-password" name="confirm-password" pattern="<?= REGEX_PASSWORD ?>" required>
                     </div>
                 </div>
-                <div class="input-group mb-3">
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
-                    </div>
+
+                <div class="check-box form-check justify-content-center mt-3">
+                    <a href="../controllers/pcCtrl.php">politique de confidentialité</a>
                 </div>
-                <div class="col-12 justify-content-center mt-5">
+
+                <div class="col-12 justify-content-center mt-3">
                     <button type="submit" class="btn btn-dark mb-5">Inscription</button>
                 </div>
             </form>
