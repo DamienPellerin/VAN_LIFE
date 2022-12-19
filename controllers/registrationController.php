@@ -139,7 +139,7 @@ try {
             $token = JWT::set($element);
             if($user){
                 $to = $mail;
-                $subject = 'Inscription à notre super site!';
+                $subject = 'Inscription à VANLIFE!';
                 $message = 'Veuillez cliquer : <a href="'.$_SERVER['HTTP_ORIGIN'].'/controllers/validateAccountCtrl.php?token='.$token.'">Cliquez-ici</a>';
                 mail($to,$subject,$message);
                 header('Location: /controllers/connectionController.php');
