@@ -180,10 +180,11 @@ public function setId_users(string $valueId_users): void
     public static function readAll(): array
     {
         $pdo = Database::getInstance();
-        $sql = 'SELECT * 
+        $sql = 'SELECT `comments`.`id_comments`, `comments`.`comment`, `comments`.`created_at`, `users`.`firstname`, `users`.lastname, users.mail, users.phone, users.adress, users.zipcode, users.city, users.birthdate, users.id_users
                 FROM `comments`    
                 INNER JOIN `users` 
                 ON `comments`.`id_users` = `users`.`id_users`;';
+                
         $sth = $pdo->query($sql);
         return $sth->fetchAll(PDO::FETCH_OBJ);
     }

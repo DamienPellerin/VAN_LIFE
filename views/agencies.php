@@ -18,7 +18,7 @@
                         </div>
 
                         <div class="card-content">
-                            <button class="button"><a href="../controllers/agenciesInfoController.php?id=<?= $agencie->id_agencies ?>"> Decouvrir</a></button>
+                            <button class="button"><a href="../controllers/agenciesInfoController.php?id=<?= $agencie->id_agencies ?>" > Decouvrir</a></button>
                         </div>
                     </div>
                 <?php } ?>

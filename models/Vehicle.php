@@ -88,18 +88,9 @@ public function setPrice(string $valuePrice): void
     $this->_price = $valuePrice;
 }
 
-//public function getId_agencies(): int
-//{
-//    return $this->_id_agencies;
-//}
-//
-//public function setId_agencies(int $valueId_agencies): void
-//{
-//    $this->_id_agencies = $valueId_agencies;
-//}
-
- /**
-     * création vehicule
+    /**
+     * CRÉATION D'UN VEHICULE
+     * 
      * @return [type]
      */
     public function addVehicle()
@@ -115,7 +106,8 @@ public function setPrice(string $valuePrice): void
     }
 
       /**
-     * afficher tous les vehicules
+     * AFFICHAGE DE TOUS LES VEHICULES
+     * 
      * @return array
      */
     public static function readAll(): array
@@ -127,6 +119,13 @@ public function setPrice(string $valuePrice): void
     }
 
 
+    /**
+     * AFFICHAGE D'UN VEHICULE
+     * 
+     * @param int $id
+     * 
+     * @return object
+     */
     public static function read(int $id):object| bool
     {
         $pdo = Database::getInstance();
@@ -137,6 +136,11 @@ public function setPrice(string $valuePrice): void
         return $sth->fetch();
     }
 
+    /**
+     * MODIFICATION D'UN VEHICULE
+     * 
+     * @return [type]
+     */
     public function updateVehicle()
     {
         $sql = 'UPDATE `vehicles` SET `name`=:name,`description`=:description,`price`=:price WHERE `id_vehicles`=:id;';
@@ -154,7 +158,8 @@ public function setPrice(string $valuePrice): void
     }
 
     /**
-     * supprimer le vehicule sélectionner 
+     * SUPPRESSION D'UN VEHICULE
+     * 
      * @param mixed $id
      * 
      * @return [type]

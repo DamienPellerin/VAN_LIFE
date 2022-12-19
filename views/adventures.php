@@ -22,7 +22,7 @@
         </div>
       <?php } ?>
     </section>
-  <?php } else if (isset($_SESSION['user']) && ($_SESSION['user']->role == 3)) { ?>
+  <?php } else if (isset($_SESSION['user']) && ($_SESSION['user']->role != 1)) { ?>
     <section class="comment ">
 
      <?php foreach ($comments_user as $comment) { ?>

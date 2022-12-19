@@ -59,7 +59,7 @@
                     <div class="col-md-5 mt-3 mb-2">
                         <div class="error"><?= $error['adress'] ?? '' ?></div>
                         <label for="adress" class="form-label">Adresse</label>
-                        <input type="text" class="form-control" id="adress" name="adress" placeholder="1234 Main St">
+                        <input type="text" class="form-control" id="adress" name="adress" placeholder="70 Rue des Jacobins">
                     </div>
                     <!--PHONE-->
                     <div class="col-md-5 mt-3 mb-2">
@@ -84,7 +84,7 @@
                 </div>
 
                 <div class="check-box form-check justify-content-center mt-3">
-                    <a href="../controllers/pcCtrl.php">politique de confidentialité</a>
+                    <a href="../controllers/pcCtrl.php">Politique de confidentialité</a>
                 </div>
 
                 <div class="col-12 justify-content-center mt-3">

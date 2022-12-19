@@ -12,6 +12,7 @@ if (isset($_SESSION['user']) && ($_SESSION['user']->role != 1)) {
 } else {
 
     try {
+        
         //Affichage des données des Agences 
         $agencies = Agencie::readAll();
 
@@ -20,10 +21,10 @@ if (isset($_SESSION['user']) && ($_SESSION['user']->role != 1)) {
 
         //Récupération de l'ID de la location
         $reservationId = intval(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));
-
+       
         //Affichage des données de la location
         $reservation = Location::read($reservationId);
-
+          
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             // CHAMP DE L'AGENCE VERIFICATION//

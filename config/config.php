@@ -23,7 +23,7 @@ define('MAX_SIZE', 5*1024*1024);
 define('UPLOAD_AGENCIE_PROFILE', __DIR__ . '/../public/uploads/agencies/');
 define('UPLOAD_VEHICLE_PROFILE', __DIR__ . '/../public/uploads/vehicles/');
 
-// Formateur de date ( echo $formatLongFr->format(strtotime("date en texte")) )
+// Formateur de date  ( echo $formatLongFr->format(strtotime("date en texte")) )
 $formatDateFr = new IntlDateFormatter(
     'fr_FR',
     IntlDateFormatter::FULL,

@@ -4,11 +4,11 @@
     <button class="btn btn-dark mb-4" type="button"><a class="text-decoration-none text-light" href="/controllers/deleteUserCtrl.php">Supprimer votre compte</a></button>
     <button class="btn btn-dark mb-4" type="button"><a class="text-decoration-none text-light" href="/controllers/user/create/addCommentUserCtrl.php">Ajouter un commentaire</a></button>
 
-    <h1 class="mb-5">Bienvenue <?= ($_SESSION['user']->firstname) ?></h1>
+    <h1 class="mb-3">Bienvenue <?= ($_SESSION['user']->firstname) ?></h1>
 
     <div class="userDashboard">
         
-        <div class="message mb-3 fs-5">
+        <div class="message alert mb-3 fs-5" role="alert" >
             <?php if (SessionFlash::exist()) { ?>
                 <?= SessionFlash::get(); ?>
             <?php } ?>
@@ -35,7 +35,7 @@
                         <td class="text-center"><?= ($_SESSION['user']->lastname) ?></td>
                         <td class="text-center"><?= ($_SESSION['user']->firstname) ?></td>
                         <td class="text-center"><?= ($_SESSION['user']->mail) ?></td>
-                        <td class="text-center"><?= ($_SESSION['user']->birthdate) ?></td>
+                        <td class="text-center"><?=  date("d-m-Y", strtotime(($_SESSION['user']-> birthdate ))); ?></td>
                         <td class="text-center"><?= ($_SESSION['user']->city) ?></td>
                         <td class="text-center"><?= ($_SESSION['user']->adress) ?></td>
                         <td class="text-center"><?= ($_SESSION['user']->phone) ?></td>
@@ -46,7 +46,7 @@
             </table>
         </div>
 
-        <div class="card mb-3">
+        <div class="card mb-5">
             <table class="userDashboardAdmin table table-sm col-12 mb-3 mt-5 ">
                 <h2 class="  mt-3">Vos reservations</h2>
                 <thead>
@@ -67,7 +67,7 @@
                             <td class="text-center"><?= $reservation->name ?></td>
                             <td class="text-center"><a class="text-decoration-none text-dark" href="/modif-location-utilisateur?id=<?= $reservation->id_registers ?>"><img src="/public/assets/img/edit.svg" alt=""></a></td>
                             <td class="text-center"><a class="text-decoration-none text-dark" href="/controllers/user/delete/deleteLocationCtrl.php?id=<?= $reservation->id_registers ?>"><img src="/public/assets/img/x-circle.svg" alt=""></a></td>
-                            <td class="text-center"><a class="text-decoration-none text-dark" href="/controllers/facturepdfCtrl.php?id=<?= $reservation->id_registers ?>"><ion-icon name="folder-outline"></ion-icon></a></td>
+                            <td class="text-center"><a class="text-decoration-none text-dark" href="/controllers/facturepdfCtrl.php?id=<?= $reservation->id_registers ?>"><img src="/public/assets/img/facture.svg" alt=""></a></td>
                         </tr>
                     <?php } ?>
                 </tbody>

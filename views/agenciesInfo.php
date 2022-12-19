@@ -11,10 +11,10 @@
                     <h1 class="mb-3">Louer un van aménagé à <?= $agencie->name ?></h1>
                     <p class="description text-center mb-5"><?= $agencie->description ?></p>
                 </div>
-                <section class="container col-12 mb-5">
 
+                <section class="container mb-5">
                     <div class="form-select-agencie row justify-content-center mb-3">
-                        <div class="col-3 row justify-content-center">
+                        <div class="col-6 ">
                             <label for="agencie">Agence</label>
                             <select class="form-select form-select-sm " aria-label=".form-select-sm example" name="agencie" id="agencie" required>
                                 <option value="<?= $agencie->id_agencies ?>"><?= $agencie->name ?></option>
@@ -22,11 +22,11 @@
                         </div>
                     </div>
                     <div class="row justify-content-center mb-3">
-                        <div class="col-3">
+                        <div class="col-6">
                             <label for="departure">Date de départ</label>
                             <input type="date" class="form-control" id="departure" name="departure" value="<?= $dateDeparture ?>" required>
                         </div>
-                        <div class="col-3">
+                        <div class="col-6">
                             <label for="return">Date de retour</label>
                             <input type="date" class="form-control" id="return" name="return" value="<?= $dateReturn ?>" required>
                         </div>
@@ -66,7 +66,7 @@
         <div class="swiper-pagination"></div>
     </div>
     <section class=" row justify-content-center">
-        <h2 class="mb-3">Tu peux récupérer ton véhicule ici</h2>
+        <h2 class="mb-5">Tu peux récupérer ton véhicule ici</h2>
 
         <iframe class="maps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2570.374185812611!2d2.2899733156720927!3d49.89177793534213!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e784402170ed13%3A0x61fd096ace4defb3!2s5%20Rue%20du%20Mar%C3%A9chal%20de%20Lattre%20de%20Tassigny%2C%2080000%20Amiens!5e0!3m2!1sfr!2sfr!4v1670487163172!5m2!1sfr!2sfr"></iframe>
     </section>

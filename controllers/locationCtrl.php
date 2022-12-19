@@ -54,14 +54,13 @@ try{
         if (empty($id_vehicles)) {
             $error["vehicle"] = "Impossible d'idantifier le vehicule!";
         }
+        
         if (empty($error)) {
             $location = new Location();
             $location->setRental_date($dateDeparture);
             $location->setReturn_date($dateReturn);
             $location->setid_users($_SESSION['user']->id_users);
             $location->setid_vehicles($id_vehicles);
-            //$agencie->setCity($city);
-            //$agencie->setZipcode($zipcode);
             $isAddedLocation = $location->addLocation();
 
           if ($isAddedLocation) {

@@ -201,6 +201,8 @@ class User
     }
 
     /**
+     * VÉRIFICATION DE MAIL EXISTANT
+     * 
      * @param string $mail
      * 
      * @return bool
@@ -221,6 +223,13 @@ class User
         }
     }
 
+    /**
+     * VERIFICATION DU MAIL = MAIL
+     * 
+     * @param string $mail
+     * 
+     * @return object
+     */
     public static function getByEmail(string $mail): object|bool
     { // ou User|bool
         $pdo = Database::getInstance();
@@ -238,7 +247,8 @@ class User
     }
 
     /**
-     * création client
+     * CRÉATION D'UN UTILISATEUR
+     * 
      * @return [type]
      */
     public function addUser(int $id = null)
@@ -268,7 +278,8 @@ class User
     }
 
     /**
-     * afficher tous les patients
+     * AFFICHAGE DE TOUS LES UTILISATEURS
+     * 
      * @return array
      */
     public static function readAll(): array
@@ -280,7 +291,8 @@ class User
     }
 
     /**
-     * Récupération des données utilisateur
+     * RÉCUPERATION DES DONNÉES DE L'UTILISATEUR
+     * 
      * @param mixed $id
      * 
      * @return [type]
@@ -294,7 +306,7 @@ class User
     }
 
    /**
-     * Récupération des données utilisateur
+     * RÉCUPERATION DES DONNÉES DE LA LOCATION D'UN UTILISATEUR
      * @param mixed $id
      * 
      * @return [type]
@@ -311,7 +323,12 @@ class User
     }
 
 
-    // modifier le profil du utilisateur.
+    
+    /**
+     * MODIFICATION D'UN UTILISATEUR
+     * 
+     * @return [type]
+     */
     public function update()
     {
         $modifyUser = 'UPDATE `users` SET `lastname`=:lastname, `firstname`=:firstname,`mail`=:mail, `phone`=:phone, `adress`=:adress, `city`=:city, zipcode=:zipcode, `birthdate`=:birthdate WHERE `id_users`= :id';
@@ -334,6 +351,7 @@ class User
     }
 
     /**
+     * SUPPRESSION D'UN UTILISATEUR
      *
      * @param int $id
      * 
@@ -354,9 +372,16 @@ class User
         return false;
     }
 
+
+    /**
+     * VALIDATION DU COMPTE
+     * 
+     * @param int $id
+     * 
+     * @return bool
+     */
     public static function validateAccount(int $id): bool
     {
-
         $pdo = Database::getInstance();
         $sql = "UPDATE users SET `validated_at` = NOW() WHERE `id_users` = :id;";
         $sth = $pdo->prepare($sql);

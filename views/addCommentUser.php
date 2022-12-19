@@ -10,7 +10,7 @@
                 <div class="mb-3">
                     <h2>Laissez un commentaire</h2>
                     <label for="user-comment" class="form-label-comment"></label>
-                    <textarea class="form-control" id="comment" name="comment" rows="10"></textarea>
+                    <textarea class="comments form-control" id="comment" name="comment" rows="25"></textarea>
                 </div>
                 <button type="submit" class="btn btn-dark">Envoyer</button>
             </form>

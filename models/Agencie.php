@@ -125,7 +125,8 @@ public function setZipcode(string $valueZipcode): void
 
 
  /**
-     * création agence
+     * CRÉATION D'UNE AGENCE
+     * 
      * @return [type]
      */
     public function addAgencie()
@@ -145,6 +146,13 @@ public function setZipcode(string $valueZipcode): void
    
 
        
+    /**
+     * AFFICHAGE D'UNE AGENCE
+     * 
+     * @param mixed $id
+     * 
+     * @return object
+     */
     public static function read($id): object | bool
     {
         $pdo = Database::getInstance();
@@ -158,7 +166,8 @@ public function setZipcode(string $valueZipcode): void
     }
 
      /**
-     * afficher tous les patients
+     * AFFICHAGE DE TOUTES LES AGENCES
+     * 
      * @return array
      */
     public static function readAll(): array
@@ -170,7 +179,8 @@ public function setZipcode(string $valueZipcode): void
     }
 
      /**
-     *
+     *SUPPRESSION D'UNE AGENCE
+     * 
      * @param int $id
      * 
      * @return bool
@@ -190,7 +200,12 @@ public function setZipcode(string $valueZipcode): void
         return false;
     }
 
-    // modifier le profil du utilisateur.
+    
+    /**
+     * MODIFICATION D'UNE AGENCE
+     * 
+     * @return [type]
+     */
     public function updateAgencie()
     {
         $modifyAgencie = 'UPDATE `agencies` SET `name`=:name, `adress`=:adress,`description`=:description, `city`=:city, `zipcode`=:zipcode WHERE `id_agencies`= :id';

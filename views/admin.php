@@ -1,8 +1,12 @@
 <main class="dashboardAdmin container mt-5">
 
-    <button class="btn btn-dark mb-4" type="button"><a class="text-decoration-none text-light" href="/controllers/admin/create/addVehicleAdminCtrl.php">Création vehicule</a></button>
+<button class="btn btn-dark mb-4" type="button"><a class="text-decoration-none text-light" href="/controllers/admin/create/addVehicleAdminCtrl.php">Création vehicule</a></button>
     <button class="btn btn-dark mb-4" type="button"><a class="text-decoration-none text-light" href="/controllers/admin/create/addUserAdminCtrl.php">Création client</a></button>
     <button class="btn btn-dark mb-4" type="button"><a class="text-decoration-none text-light" href="/controllers/admin/create/addAgencieAdminCtrl.php">Création Agence</a></button>
+
+
+
+   
 
     <h1 class="mb-5">Bienvenue <?= ($_SESSION['user']->firstname) ?></h1>
 
@@ -36,7 +40,7 @@
                     <tr>
                         <td class="text-center" class="text-center"><?= $user->lastname ?></td>
                         <td class="text-center" class="text-center"><?= $user->firstname ?></td>
-                        <td class="text-center" class="text-center"><?= $user->birthdate ?></td>
+                        <td class="text-center" class="text-center"><?= date("d-m-Y", strtotime($user->birthdate));  ?></td>
                         <td class="text-center" class="text-center"><?= $user->adress ?></td>
                         <td class="text-center" class="text-center"><?= $user->phone ?></td>
                         <td class="text-center" class="text-center"><?= $user->mail ?></td>
@@ -155,7 +159,7 @@
                         <td class="text-center"><?= $reservation->name ?></td>
                         <td class="text-center"><a class="text-decoration-none text-dark" href="/modif-location-utilisateur-by-admin?id=<?= $reservation->id_registers ?>"><img src="/public/assets/img/edit.svg" alt=""></a></td>
                         <td class="text-center"><a class="text-decoration-none text-dark" href="/controllers/admin/delete/deleteLocationCtrl.php?id=<?= $reservation->id_registers  ?>"><img src="/public/assets/img/x-circle.svg" alt=""></a></td>
-                        <td class="text-center"><a class="text-decoration-none text-dark" href="/controllers/facturepdfCtrl.php?id=<?= $reservation->id_registers ?>"><ion-icon name="folder-outline"></ion-icon></a></td>
+                        <td class="text-center"><a class="text-decoration-none text-dark" href="/controllers/facturepdfCtrl.php?id=<?= $reservation->id_registers ?>"><img src="/public/assets/img/facture.svg" alt=""></a></td>
 
                     </tr>
                 <?php } ?>

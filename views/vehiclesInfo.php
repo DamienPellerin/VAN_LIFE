@@ -13,23 +13,25 @@
                     <p class="text-center"><?= $vehicle->description ?></p>
                 </div>
                 
-                <section class="container col-12 mb-5 ">
+                <section class="container mb-5 ">
 
                     <div class="row justify-content-center mb-3 ">
-                        <div class="col-3 ">
+                        <div class="col-6 ">
                             <label for="vehicle">Van</label>
                             <select class="form-select form-select-sm " aria-label=".form-select-sm example" name="vehicle" id="vehicle">
                                 <option value="<?= $vehicle->id_vehicles ?>"><?= $vehicle->name ?></option>
                             </select>
                         </div>
-                  
-                        <div class="col-2">
+                    </div>
+
+                    <div class="row justify-content-center mb-3 ">
+                        <div class="col-6">
                             <label for="departure">Date de départ</label>
-                            <input type="date" class="form-control" id="departure" name="departure" value="<?= $dateDeparture ?>">
+                            <input type="date" class="form-control" id="departure" name="departure" value="<?= $dateDeparture ?>" required>
                         </div>
-                        <div class="col-2">
+                        <div class="col-6">
                             <label for="return">Date de retour</label>
-                            <input type="date" class="form-control" id="return" name="return" value="<?= $dateReturn ?>">
+                            <input type="date" class="form-control" id="return" name="return" value="<?= $dateReturn ?>" required>
                         </div>
                     </div>
                 </section>

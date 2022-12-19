@@ -16,9 +16,9 @@
                     <label for="agencie">Agence</label>
                     <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="agencie" id="agencie">
                         <option selected>Agence</option>
-                        <?php foreach ($agencies as $agencie) { ?>
+                        <?php foreach ($agencies as $agencie) { ?>  
                             <option <?= ($reservation->id_agencies == $agencie->id_agencies) ? 'selected' : ''; ?> value="<?= $agencie->id_agencies ?>"><?= $agencie->name ?></option>
-                        <?php } ?>
+                            <?php } ?>
                     </select>
                 </div>
             </div>
